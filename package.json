@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/dskay3/burger/issues"
   },
-  "homepage": "https://github.com/dskay3/burger#readme"
+  "homepage": "https://github.com/dskay3/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql": "^2.14.1"
+  }
 }
