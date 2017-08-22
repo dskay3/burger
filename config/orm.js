@@ -22,5 +22,15 @@ const orm = {
       if (err) throw err;
       cb(res);
     });
+  },
+  // Inserts one burger entry
+  insertOne: (table, burgerName, eaten, cb) => {
+    // Query string
+    const query = 'INSERT INTO ?? (burger_name, devoured) VALUES (?, ?)';
+
+    connection.query(query, [table, burgerName, eaten], (err, res) => {
+      if (err) throw err;
+      cb(res);
+    });
   }
 }
