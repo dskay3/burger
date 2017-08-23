@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 });
 
 // Connection using ES6
-connection.connect(err => {
+connection.connect((err) => {
   if (err) {
     console.log(chalk.red("Error connecting: " + err.stack));
     return;

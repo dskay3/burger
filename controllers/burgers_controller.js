@@ -5,37 +5,44 @@ const burger = require('../models/burger.js');
 // Router for the app
 const router = express.Router();
 
-router.get('/', (request, result) => {
-  burger.selectAll('burgers', (data) => {
-    result.render('index', {
+router.get('/', (req, res) => {
+  burger.selectAll((data) => {
+    // Console logs all burger data
+    console.log(data);
+
+    res.render('index', {
       burgers: data
     });
   });
 });
 
-router.post('/', (request, result) => {
-  const burgerName = {
-    burgerName: req.body.burgerName
-  };
-  const eaten = {
-    eaten: request.body.eaten
-  }
-
-  burger.insertOne('burger', burgerName, eaten, (data) => {
+router.post('/', (req, res) => {
+  burger.insertOne([
+    "burger_name", "devoured"
+  ], [
+    req.body.burger_name, req.body.devoured
+  ], () => {
     result.redirect('/');
   });
 });
 
-router.put('/:id', (request, result) => {
-  const eaten = {
-    devoured: Boolean(request.body.devoured)
-  };
-  const condition = {
-    id: request.params.id
-  }
+router.put('/:id', (req, res) => {
+  var condition = 'id = ' + req.params.id;
 
-  burger.updateOne('burgers', 'devoured', eaten, condition, (data) => {
+  console.log('Condition: ' + condition);
+
+  burger.updateOne({
+    devoured: req.body.devoured
+  }, condition, () => {
     result.redirect('/');
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  var condition = 'id = ' + req.params.id;
+
+  burger.delete(condition, () => {
+    res.redirect('/');
   });
 });
 
