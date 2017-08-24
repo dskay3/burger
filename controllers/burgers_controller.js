@@ -20,9 +20,9 @@ router.post('/', (req, res) => {
   burger.insertOne([
     "burger_name", "devoured"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.burger_name, 0
   ], () => {
-    result.redirect('/');
+    res.redirect('/');
   });
 });
 
@@ -34,7 +34,7 @@ router.put('/:id', (req, res) => {
   burger.updateOne({
     devoured: req.body.devoured
   }, condition, () => {
-    result.redirect('/');
+    res.redirect('/');
   });
 });
 
