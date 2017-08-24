@@ -7,7 +7,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 
 // Establish port
-const PORT = 8000 || process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 // Establish express instance
 const app = express();

@@ -1,7 +1,7 @@
 // NPM packages
 const mysql = require('mysql');
 const chalk = require('chalk');
-var connection;
+const connection;
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
