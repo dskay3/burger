@@ -7,6 +7,3 @@ VALUES ("Whopper", false);
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES ("Chic-fila", true);
-
--- View all data
-SELECT * FROM burgers;
