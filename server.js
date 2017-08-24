@@ -7,7 +7,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 
 // Establish port
-const PORT = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 
 // Establish express instance
 const app = express();
@@ -25,6 +25,6 @@ app.set('view engine', 'handlebars');
 // Import routes and give the server access
 const routes = require('./controllers/burgers_controller.js');
 app.use('/', routes);
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log('App is listening on ' + PORT);
 });
