@@ -1,6 +1,7 @@
 // NPM packages
 const mysql = require('mysql');
 const chalk = require('chalk');
+const keys = require('../keys');
 var connection;
 
 if (process.env.JAWSDB_URL) {
@@ -9,7 +10,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Kihyun123',
+    password: keys.password,
     database: 'burgers_db'
   });
 };
